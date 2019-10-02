@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<ns1:context
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns:ns1='http://formation.deployer.jpass.cognizant.com'
+	xsi:schemaLocation='http://formation.deployer.jpass.cognizant.com EnvironmentProfile.xsd'>
+	<ns1:cloud>
+		<ns1:name>${name}</ns1:name>
+		<ns1:url>http://10.227.125.3:8773/services/Eucalyptus</ns1:url>
+		<ns1:accessId>${accessId}</ns1:accessId>
+		<ns1:secretKey>${secretKey}</ns1:secretKey>        
+		<ns1:templates>
+			<ns1:template>
+				<ns1:description>WEBSERVER</ns1:description>     
+				<ns1:mi>${mi1}</ns1:mi>                           
+				<ns1:zone>cluster-jpaas</ns1:zone>
+				<ns1:securityGroups>NA</ns1:securityGroups>
+				<ns1:remoteFS>/tmp/formit-rundeck</ns1:remoteFS>
+				<ns1:sshPort>22</ns1:sshPort>
+				<ns1:type>m1.small</ns1:type>
+				<ns1:tag>WEBSERVER</ns1:tag>
+				<ns1:userData>NA</ns1:userData>
+				<ns1:remoteUser>ubuntu</ns1:remoteUser>
+				<ns1:rootCommandPrefix>sudo</ns1:rootCommandPrefix>
+				<ns1:subnetId>NA</ns1:subnetId>
+			</ns1:template>            
+		</ns1:templates>
+	</ns1:cloud>
+	<ns1:project>
+		<ns1:ssh-keypath>V1</ns1:ssh-keypath>
+		<ns1:name>V2</ns1:name>
+		<ns1:resource>V3</ns1:resource>
+	</ns1:project>
+</ns1:context>

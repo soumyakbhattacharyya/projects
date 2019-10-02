@@ -1,0 +1,80 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <l:layout norefresh="true">
+        <!--
+        <l:hasPermission permission="${app.READ}">
+            <st:include page="sidepanel.jelly" />
+        </l:hasPermission>
+        -->
+        <l:main-panel>
+            <div style="margin: 2em;">
+                <!-- login form -->
+                <!--form name="login" action="${it.getSuperAuthenticationGatewayUrl()}" method="post" style="text-size:smaller"-->
+                <form name="login" action="${rootURL}/${it.getSuperAuthenticationGatewayUrl()}" method="post" style="text-size:smaller">
+       
+                    <table>
+                        <tr>              
+                            <td>
+                                <input type="hidden" name="j_username" id="j_username" value="${it.getLoggedInUserName()}"/>
+                            </td>
+                        </tr>
+                        <tr>              
+                            <td>
+                                <input type="hidden" name="j_password" value="${it.getUserPassword()}"/>
+                            </td>
+                        </tr>            
+                    </table>
+         
+                    <table>
+                        <tr> 
+                            <td>				
+                                Project Id : 
+                            </td>
+                            <td> 
+                                
+                                <select class="setting-input" name="projectSelect" onchange="${it.setProjectID(this.value)}" id="projectSelect">
+                                    <option value="nochoice">--Choose--</option>
+                                    <j:forEach var="t" items="${it.projectList}">
+                                        <option value="${it.getProjectExternalID(t)}">${t}</option>
+                                    </j:forEach>
+                                </select>
+                                
+                            </td>
+                        </tr>			
+                    </table>			
+                    <p>			
+                        <!--input type="button" value="Submit" onclick="validateForm()"/-->			
+                    </p>
+                    <input type="hidden" name="from" value="${it.getFromString()}" />
+                    <!--f:submit value="${%login}" onclick="validateForm()"/-->
+                    <input type="button" value="Submit" onclick="validateForm()"/>
+                    
+                    <script>
+                        $('j_username').focus();
+                    </script>
+                </form>              
+            </div>
+        </l:main-panel>
+        <l:header>
+            <!-- for screen resolution detection -->
+            <l:yui module="cookie" />
+            <script>
+                YAHOO.util.Cookie.set("screenResolution", screen.width+"x"+screen.height);    		
+            </script>                        
+            <script type="text/javascript">		
+    		
+                function validateForm(){
+    			
+                var selectedProject=document.getElementById('projectSelect').value;
+                if(selectedProject=='nochoice'){
+                alert('Please select a Project to proceed');
+                	return false;
+                }else{
+                 	document.forms["login"].submit();
+                }   			
+                }
+    		
+            </script>
+        </l:header>
+    </l:layout>
+</j:jelly>

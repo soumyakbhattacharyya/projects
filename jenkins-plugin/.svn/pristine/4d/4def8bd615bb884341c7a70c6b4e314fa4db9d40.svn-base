@@ -1,0 +1,62 @@
+Preflight Related Pending Changes 
+-----------------------------------------------------------------------------------------------------------------------------------
+Changes to be done in DB
+
+service_catalog :- Add a new Service as 'Pre-Flight-Build' with service id as 6
+
+role:- Add a new Role as 'CLI-Developer' 
+
+service_catalog_role_map:- Add mapping between role and service
+
+service_item_catalog:- Add the following items with service_id as service_id of Pre-Flight-Build
+		hudson.model.Hudson.Read
+		hudson.model.Item.Create
+		hudson.model.Item.Configure
+		hudson.model.Item.Delete
+		hudson.model.Item.Build
+		hudson.model.Item.Read
+		hudson.model.Item.Workspace
+		hudson.model.Item.Update
+		hudson.model.Item.ExtendedRead
+		Item.CONFIGURE
+
+role_service_item_catalog_map:- Add mapping between new services and below service catalogs 
+
+		hudson.model.Hudson.Read
+		hudson.model.Item.Create
+		hudson.model.Item.Configure
+		hudson.model.Item.Delete
+		hudson.model.Item.Build
+		hudson.model.Item.Read
+		hudson.model.Item.Workspace
+		hudson.model.Item.Update
+		hudson.model.Item.ExtendedRead
+		Item.CONFIGURE
+
+enterprise_service_subscription:- Add an entry for new Service for the enterprise id 1
+
+Update in the portal code
+
+In the Portal code update assignRoles() method in the RoleAction.java. Add logic to update user_role_project_service_catalog_map
+table for the service 'Pre-Flight-Build'
+
+In the ServiceCatalogAction, in the assign() method, Add a check as following
+		If the service subscription is for Pre-Flight-Build, 
+			If the project is already subscribed for BaaS
+				updateProjectServiceSubscription and mail notification
+			else
+				show an message as Project should be subscribed for BaaS to get Pre-Flight subscription.
+
+Update in the Cloudset-Auth Plugin
+
+1. Add a checkbox in the Management Jenkins for Auth Section as Enable Pre Flight Build 
+2. In the  CloudSetAuthorizationUserACL class , in the hasPermission() method do the following changes
+
+	 if Pre Flight Build is enabled
+		if cloudSetUser is cliUser
+			call the getUserPermissionForCLI 
+			
+3. Add a new method in RBacUtil as getUserPermissionForCLI which should call getUserServicePermission() with the SERVICE ID for Pre Flight Build
+4. Once the authorization is done, maintain a separate cache for CLI with the permissions
+
+

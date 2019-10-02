@@ -1,0 +1,15 @@
+
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+    xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    <f:entry title="${%Server}">
+        <f:textbox name="authenticator.myRbacServerURL" value="${instance.myRbacServerURL}"/>
+    </f:entry>
+    <f:entry title="${%KeyfilePath}" help="/plugin/mysql-auth/help/database.html">
+        <f:textbox name="authenticator.securityKeyfilePath" value="${instance.securityKeyfilePath}"/>
+    </f:entry>
+    <f:entry title="${%Password}" help="/plugin/mysql-auth/help/username.html">
+        <f:password name="authenticator.rbacPassword" value="${instance.rbacPassword}"/>
+    </f:entry>
+    
+   
+</j:jelly>

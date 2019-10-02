@@ -1,0 +1,60 @@
+<settings>
+  <pluginGroups>
+    <pluginGroup>org.jenkins-ci.tools</pluginGroup>
+  </pluginGroups>
+<localRepository>D:\Swastika\Project_Details\Indigo\Indigo_Workbench\apache-maven-2.2.1\repo\</localRepository>
+<proxies>
+    <!-- proxy
+     | Specification for one proxy, to be used in connecting to the network.
+     |
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <username>proxyuser</username>
+      <password>proxypass</password>
+      <host>proxy.host.net</host>
+      <port>80</port>
+      <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
+    </proxy>
+    -->
+
+	<proxy>
+	      <active>true</active>
+	      <protocol>http</protocol>
+	      <username>SJazzTest</username>
+	      <password>J111111#</password>
+	      <host>proxy.cognizant.com</host>
+	      <port>6050</port>
+	      <nonProxyHosts>10.242.138.33|203.99.193.24|*.cognizant.com</nonProxyHosts>
+	</proxy>
+  </proxies>
+  <profiles>
+    <!-- Give access to Jenkins plugins -->
+    <profile>
+      <id>jenkins</id>
+      <activation>
+        <activeByDefault>true</activeByDefault> <!-- change this to false, if you don't like to have it on per default -->
+      </activation>
+      <repositories>
+        <repository>
+          <id>repo.jenkins-ci.org</id>
+          <url>http://repo.jenkins-ci.org/public/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>repo.jenkins-ci.org</id>
+          <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <mirrors>
+    <mirror>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+      <mirrorOf>m.g.o-public</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>

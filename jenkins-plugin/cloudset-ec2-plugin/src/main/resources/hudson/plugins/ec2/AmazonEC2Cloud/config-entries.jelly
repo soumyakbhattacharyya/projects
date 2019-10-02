@@ -1,0 +1,37 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:entry title="${%Region}" field="region">
+    <f:enum>${it.displayName}</f:enum>
+  </f:entry>
+  <f:entry title="${%Access Key ID}" field="accessId">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="Account Id" field="accountId">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="Security Group" field="securityGroup">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="Security Key File Name" field="securityKeyFileName">
+    <f:textbox />
+  </f:entry>  
+  <f:entry title="VM Owner Id" field="vmOwnerId">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="${%Secret Access Key}" field="secretKey">
+    <f:password />
+  </f:entry>
+  <f:entry title="${%EC2 RSA Private Key}" field="privateKey">
+    <f:textarea />
+  </f:entry>
+  <f:advanced>
+    <f:entry title="${%Instance Cap}" field="instanceCapStr">
+      <f:textbox />
+    </f:entry>
+  </f:advanced>  
+  <f:validateButton title="${%Test Connection}" progress="${%Testing...}" method="testConnection" with="region,accessId,accountId,securityGroup,securityKeyFileName,vmOwnerId,secretKey,privateKey" />
+  <f:entry title="${%AMIs}" description="${%List of AMIs to be launched as slaves}">
+    <f:repeatable field="templates">
+      <st:include page="config.jelly" class="${descriptor.clazz}" />
+    </f:repeatable>
+  </f:entry>
+</j:jelly>

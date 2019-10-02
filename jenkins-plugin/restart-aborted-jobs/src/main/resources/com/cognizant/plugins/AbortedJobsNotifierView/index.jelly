@@ -1,0 +1,50 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+<l:layout title="${%Aborted Jobs}" secured="true">
+
+<l:side-panel>
+    <l:tasks>
+      <l:task icon="images/24x24/up.gif" href="${rootURL}/" title="${%Back to Dashboard}" />
+    </l:tasks>
+</l:side-panel>
+
+<l:main-panel>
+
+     <h1><img src="${resURL}/plugin/restart-aborted-jobs/icons/diskusage48.png" /> ${%Aborted Jobs} </h1>
+	
+	 <j:if test="${it.isAbortedJobsAbsent()}">
+	 	 <p>No aborted jobs found.</p>
+	 </j:if>
+	 <j:if test="${it.isAbortedJobsPresent()}">
+		 <p>The following is the list of jobs that were aborted due to jenkins</p>
+	
+		 <j:set var="abortedjobslist" value="${it.getAbortedJobs()}" />
+		 
+	     <table id="abortedjobs" class="sortable pane bigtable">
+	      <tr>
+	        <th>${%Name}</th> <th>${%Previous Build}</th> <th>${%Previous Build Date}</th> <th>${%Previous Build Time}</th> <th>${%Previous Build Status}</th> <th>${%Action}</th>
+	      </tr>
+	      
+	      <j:forEach var="job" items="${abortedjobslist}" varStatus="loop">
+	      <tr>
+	        <td><b><a class="model-link inside" href="${it.getAbortedJobUrl(job)}">${job}</a></b></td>
+	        <td>${it.getLastBuildNumber(job)}</td>
+	        <td>${it.getLastBuildDate(job)}</td>
+	        <td>${it.getLastBuildTime(job)}</td>
+	        <td>${it.getLastBuildResult(job)}</td>
+	        <td><img title="Schedule a build" alt="Schedule a build" onclick="return build${loop.index}(this);" src="/jenkins/static/09554240/images/24x24/clock.png" border="0"></img>
+	        	<script type="text/javascript">function build${loop.index}(img) {
+	        		  new Ajax.Request('${it.getJobBuildUrl(job)}',{method:'post',parameters:{delay:'0sec'}});
+	                  hoverNotification('Build scheduled', img, -100);
+	                  return false;
+	                }</script>
+	        </td> 
+	      </tr>
+	      </j:forEach>
+	      
+	     </table>
+     </j:if>
+      
+</l:main-panel>
+
+</l:layout>
+</j:jelly>

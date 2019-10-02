@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 15, 2013 1:14:07 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="com.cognizant.jpaas2.api.domain.AppEnvMaster" table="app_env_master" catalog="jpaas2_services_db_dev" lazy="false">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<version name="version" type="long">
+			<column name="version" not-null="true" />
+		</version>
+		<property name="shortDesc" type="string">
+			<column name="short_desc" not-null="true" />
+		</property>
+		<property name="longDesc" type="string">
+			<column name="long_desc" />
+		</property>
+		<property name="providerId" type="java.lang.Integer">
+			<column name="provider_id" />
+		</property>
+		<property name="cloudAccountId" type="java.lang.Integer">
+			<column name="cloud_account_id" />
+		</property>
+		<property name="blueprintFileId" type="string">
+			<column name="blueprint_file_id" />
+		</property>
+		<property name="deploymentFileId" type="string">
+			<column name="deployment_file_id" />
+		</property>
+		<set name="appEnvInstances" inverse="true" lazy="false">
+			<key>
+				<column name="app_env_id" not-null="true" />
+			</key>
+			<one-to-many class="com.cognizant.jpaas2.api.domain.AppEnvInstance" />
+		</set>
+		<set name="appEnvParamses" inverse="true" lazy="false">
+			<key>
+				<column name="app_env_id" not-null="true" />
+			</key>
+			<one-to-many class="com.cognizant.jpaas2.api.domain.AppEnvParams" />
+		</set>
+	</class>
+</hibernate-mapping>

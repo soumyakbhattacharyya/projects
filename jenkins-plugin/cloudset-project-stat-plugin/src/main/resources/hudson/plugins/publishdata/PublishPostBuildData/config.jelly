@@ -1,0 +1,7 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:section title="Publish Build Data">
+  <f:entry>
+  <f:description>Post the build log of a current build into Database for future reference</f:description>
+  </f:entry>
+  </f:section>
+</j:jelly>

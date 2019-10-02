@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Built-By: 239913
+Created-By: Apache Maven
+Build-Jdk: 1.6.0_31
+Extension-Name: rtc
+Specification-Title: Integrates Hudson/Jenkins to Rational Team Concert
+Implementation-Title: rtc
+Implementation-Version: 0.3
+Group-Id: org.jenkins-ci.plugins
+Short-Name: rtc
+Long-Name: Jenkins RTC plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Rational+Team+Concert+
+ Plugin
+Plugin-Version: 0.3
+Hudson-Version: 1.400
+Plugin-Developers: Deluan Quintao:deluan:jenkins@deluan.com
+

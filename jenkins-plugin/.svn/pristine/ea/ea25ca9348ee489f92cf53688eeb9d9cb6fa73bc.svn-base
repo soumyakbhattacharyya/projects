@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<version>${jenkins.version}</version>
+	</parent>
+	<artifactId>cloudset-project-stats-plugin</artifactId>
+	<packaging>hpi</packaging>
+	<name>CloudSet Project statistics Plugin</name>
+	<version>${baas.plugin.version}</version>
+	<description>Provide a new dashboard-view portlet and a new column for project statistics. 
+	Modifications : removed database dependencies and others </description>
+	<url>http://wiki.jenkins-ci.org/display/JENKINS/Project+Statistics+Plugin</url>
+
+	<scm>
+		<connection>scm:git:git://github.com/jenkinsci/project-stats-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:jenkinsci/project-stats-plugin.git</developerConnection>
+		<url>https://github.com/jenkinsci/project-stats-plugin</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>mambu</id>
+			<name>Marco Ambu</name>
+			<email>marco.ambu+jenkins@gmail.com</email>
+			<timezone>0</timezone>
+		</developer>
+	</developers>
+	<dependencies>
+		<dependency>
+			<groupId>org.jenkins-ci.plugins</groupId>
+			<artifactId>dashboard-view</artifactId>
+			<version>2.0</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency><!-- This is a dependency to read properties file -->
+			<groupId>com.pholser</groupId>
+			<artifactId>property-binder</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>BuildServDataServiceClientWrapper</artifactId>
+			<version>${build.module.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>httpsclientutil</artifactId>
+			<version>${common.module.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>commons</artifactId>
+			<version>${common.module.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>buildservcore</artifactId>
+			<version>${build.module.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>BuildServDataServiceClient</artifactId>
+			<version>${build.module.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jenkins-ci.plugins</groupId>
+			<artifactId>cloudset-rbac</artifactId>
+			<version>${baas.plugin.version}</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>jenkins-ci</id>
+			<url>http://maven.jenkins-ci.org/content/repositories/releases</url>
+		</repository>
+	</repositories>
+	<profiles>
+		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<id>jpaas-build-profile-snapshot</id>
+			<properties>
+				<project.build.groupId>org.jenkins-ci.plugins</project.build.groupId>
+				<project.build.artifactId>cloudset-project-stats-plugin</project.build.artifactId>
+				<project.build.version>${baas.plugin.version}</project.build.version>
+			</properties>
+			<distributionManagement>
+				<repository>
+					<id>${deployment.id}</id>
+					<url>${deployment.url}</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+</project>

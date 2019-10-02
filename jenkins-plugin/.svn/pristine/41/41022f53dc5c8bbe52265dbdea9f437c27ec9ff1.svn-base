@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<version>1.532.1</version><!-- which version of Jenkins is this plugin 
+			built against? -->
+	</parent>
+
+	<groupId>org.jenkins-ci.plugins</groupId>
+	<artifactId>cloudset-rbac</artifactId>
+	<version>${baas.plugin.version}</version>
+	<packaging>hpi</packaging>
+	<name>BaaS CloudSet Rbac Plugin</name>
+
+	<!-- get every artifact through repo.jenkins-ci.org, which proxies all the 
+		artifacts that we need -->
+	<repositories>
+		<repository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<properties>
+		<!-- explicitly specifying the latest version here because one we get from 
+			the parent POM tends to lag behind a bit -->
+		<maven-hpi-plugin.version>1.96</maven-hpi-plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.cognizant.jpaas</groupId>
+			<artifactId>rbac-client</artifactId>
+			<version>${rbac.module.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>httpsclientutil</artifactId>
+			<version>${common.module.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.9</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.httpcomponents</groupId>
+		  <artifactId>httpclient</artifactId>
+		  <version>4.1</version>
+		  <scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>jpaas-build-profile-snapshot</id>
+            <properties>
+                <project.build.groupId>org.jenkins-ci.plugins</project.build.groupId>
+                <project.build.artifactId>cloudset-rbac</project.build.artifactId>
+                <project.build.version>${baas.plugin.version}</project.build.version>
+            </properties>
+            <distributionManagement>
+                <repository>
+                    <id>${deployment.id}</id>
+                    <url>${deployment.url}</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+</project>

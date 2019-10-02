@@ -1,0 +1,15 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-01-25 14:17:31
+hint
+project --topLevelPackage com.cognizant.jpaas2.todo
+hint
+jpa setup --provider HIBERNATE --database MYSQL 
+hint
+entity jpa --class com.cognizant.jpaas2.todo.TODO 
+hint
+field string todoShortDesc 
+field string todoLongDesc
+hint
+hint web mvc
+web mvc setup
+web mvc scaffold --class ~.TODOController 
+hint

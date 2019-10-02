@@ -1,0 +1,17 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+  <f:section title="Publish Post Build Data">
+    <f:entry title="BuildLog DetailsService Url" field="baasBuildLogDetailsServiceUrl"
+      description="BuildLog Details Service Url">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Provide Key Store" field="baasBuildLogDetailsServiceKeyStore"
+      description="Key Store to connect to Service">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="Provide Service User Password" field="baasBuildLogDetailsServicePasswd"
+      description="Password to connect to Service">
+      <f:password />
+    </f:entry>
+  </f:section>
+</j:jelly>

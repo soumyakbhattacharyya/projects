@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<infra:context
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns:infra='http://formation.deployer.jpass.cognizant.com'
+	xsi:schemaLocation='http://formation.deployer.jpass.cognizant.com EnvironmentProfile.xsd'>
+	<infra:cloud>
+		<infra:name>${name}</infra:name>
+		<infra:providerName>${providerName}</infra:providerName>
+		<infra:url>${cloudEndpoint}</infra:url>
+		<infra:accessId>${accessId}</infra:accessId>
+		<infra:secretKey>${secretKey}</infra:secretKey>
+		<infra:virtualMachineServiceURL>${virtualMachineServiceURL}</infra:virtualMachineServiceURL>
+		<infra:keypath>${keypath}</infra:keypath>
+		<infra:keystorePwd>${keystorePwd}</infra:keystorePwd>
+		<infra:serviceId>${serviceId}</infra:serviceId>
+		<infra:keyPairId>${keyPairId}</infra:keyPairId>
+		<infra:templates>
+			<infra:template>
+				<infra:mi>vsphere.general.purpose.mi</infra:mi>
+				<infra:description>vsphere.general.purpose.description</infra:description>                
+				<infra:zone>vsphere.general.purpose.zone</infra:zone>
+				<infra:securityGroups>vsphere.general.purpose.securityGroups</infra:securityGroups>
+				<infra:remoteFS>vsphere.general.purpose.remoteFS</infra:remoteFS>
+				<infra:sshPort>vsphere.general.purpose.sshPort</infra:sshPort>
+				<infra:type>vsphere.general.purpose.type</infra:type>
+				<infra:tag>vsphere.box1.tag</infra:tag>
+				<infra:userData>vsphere.general.purpose.userData</infra:userData>
+				<infra:remoteUser>vsphere.general.purpose.remoteUser</infra:remoteUser>
+				<infra:rootCommandPrefix>vsphere.general.purpose.rootCommandPrefix</infra:rootCommandPrefix>
+				<infra:subnetId>vsphere.general.purpose.subnetId</infra:subnetId>
+				<infra:cpuCount>vsphere.general.purpose.cpuCount</infra:cpuCount>  
+				<infra:diskSizeInGb>vsphere.general.purpose.diskSizeInGb</infra:diskSizeInGb>
+				<infra:name>vsphere.general.purpose.name</infra:name>
+				<infra:productId>vsphere.general.purpose.productId</infra:productId>
+				<infra:ramInMb>vsphere.general.purpose.ramInMb</infra:ramInMb>
+			</infra:template>            
+		</infra:templates>
+	</infra:cloud>
+	<infra:project>
+		<infra:ssh-keypath>/home/ubuntu/rundeck_server/key-pair/JPaaS-Testing-ver-1.0.0.priv</infra:ssh-keypath>
+		<infra:name>proj-deployment-orchestrator</infra:name>
+		<infra:resource>http://10.227.125.44:8080/spring-rest-example/rest/resource/resources.xml</infra:resource>
+	</infra:project>
+</infra:context>

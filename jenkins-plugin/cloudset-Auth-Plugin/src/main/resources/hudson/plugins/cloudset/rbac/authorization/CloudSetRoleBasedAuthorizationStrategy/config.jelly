@@ -1,0 +1,24 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+    xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+    
+        <f:entry title="${%Server}" field="rbacURL">
+            <f:textbox value="${instance.rbacURL}"/>
+        </f:entry>
+        <f:entry title="${%KeyfilePath}" help="/plugin/mysql-auth/help/database.html" field="keyPath">
+            <f:textbox value="${instance.keyPath}"/>
+        </f:entry>
+        
+        <f:entry title="${%Password}" help="/plugin/mysql-auth/help/username.html" field="rbacPassword">
+            <f:password value="${instance.rbacPassword}"/>
+        </f:entry>   
+        
+         <f:entry title="${%CacheTime}" help="/plugin/mysql-auth/help/database.html" field="cacheTime">
+            <f:textbox value="${instance.cacheTime}"/>
+        </f:entry>
+          <f:entry title="${%Enable Pre Flight Build}" field="preFlightEnabled" 
+          description="Enable or disable personal build for preflight"> 
+     		<f:checkbox checked="${instance.preFlightEnabled}"/>
+      	</f:entry>
+   
+</j:jelly>

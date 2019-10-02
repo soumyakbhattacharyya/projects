@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+	<schema-selection match-catalog="jpaas2_services_db_dev"/>
+	<table-filter match-name="app_env_params"/>
+	<table-filter match-name="app_env_master"/>
+	<table-filter match-name="app_env_instance"/>
+	<table-filter match-name="app_env_task_overview"/>
+</hibernate-reverse-engineering>

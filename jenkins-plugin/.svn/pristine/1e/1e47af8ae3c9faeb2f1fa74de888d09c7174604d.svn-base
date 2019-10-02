@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+Group-Id: org.jenkins-ci.plugins
+Short-Name: build-pipeline-plugin
+Long-Name: Build Pipeline Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin
+Plugin-Version: 1.4.1
+Hudson-Version: 1.521
+Jenkins-Version: 1.521
+Plugin-Dependencies: dashboard-view:2.2;resolution:=optional,cloudset-
+ rbac:3.0.0-SNAPSHOT,jquery:1.7.2-1,parameterized-trigger:2.17
+Plugin-Developers: Centrum Systems:centrum:plugins@centrumsystems.com.au
+Support-Dynamic-Loading: true
+Libraries: D:\Backup\Juno-Jenkins-Auth-Plugin\build-pipeline-plugin-bu
+ ild-pipeline-plugin-1.4.1\target\classes,D:\Swastika\Project_Details\
+ Indigo\Indigo_Workbench\apache-maven-2.2.1\repo-Portal-String\org\apa
+ che\httpcomponents\httpclient\4.2.1\httpclient-4.2.1.jar,D:\Swastika\
+ Project_Details\Indigo\Indigo_Workbench\apache-maven-2.2.1\repo-Porta
+ l-String\org\seleniumhq\selenium\selenium-ie-driver\2.31.0\selenium-i
+ e-driver-2.31.0.jar,D:\Swastika\Project_Details\Indigo\Indigo_Workben
+ ch\apache-maven-2.2.1\repo-Portal-String\org\seleniumhq\selenium\sele
+ nium-firefox-driver\2.31.0\selenium-firefox-driver-2.31.0.jar,D:\Swas
+ tika\Project_Details\Indigo\Indigo_Workbench\apache-maven-2.2.1\repo-
+ Portal-String\org\json\json\20080701\json-20080701.jar,D:\Swastika\Pr
+ oject_Details\Indigo\Indigo_Workbench\apache-maven-2.2.1\repo-Portal-
+ String\org\seleniumhq\selenium\selenium-api\2.31.0\selenium-api-2.31.
+ 0.jar,D:\Swastika\Project_Details\Indigo\Indigo_Workbench\apache-mave
+ n-2.2.1\repo-Portal-String\org\apache\httpcomponents\httpcore\4.2.1\h
+ ttpcore-4.2.1.jar,D:\Swastika\Project_Details\Indigo\Indigo_Workbench
+ \apache-maven-2.2.1\repo-Portal-String\commons-logging\commons-loggin
+ g\1.1.1\commons-logging-1.1.1.jar,D:\Swastika\Project_Details\Indigo\
+ Indigo_Workbench\apache-maven-2.2.1\repo-Portal-String\org\seleniumhq
+ \selenium\selenium-chrome-driver\2.31.0\selenium-chrome-driver-2.31.0
+ .jar,D:\Swastika\Project_Details\Indigo\Indigo_Workbench\apache-maven
+ -2.2.1\repo-Portal-String\org\apache\commons\commons-exec\1.1\commons
+ -exec-1.1.jar,D:\Swastika\Project_Details\Indigo\Indigo_Workbench\apa
+ che-maven-2.2.1\repo-Portal-String\org\seleniumhq\selenium\selenium-s
+ upport\2.31.0\selenium-support-2.31.0.jar,D:\Swastika\Project_Details
+ \Indigo\Indigo_Workbench\apache-maven-2.2.1\repo-Portal-String\org\se
+ leniumhq\selenium\selenium-remote-driver\2.31.0\selenium-remote-drive
+ r-2.31.0.jar,D:\Swastika\Project_Details\Indigo\Indigo_Workbench\apac
+ he-maven-2.2.1\repo-Portal-String\net\java\dev\jna\jna\3.4.0\jna-3.4.
+ 0.jar,D:\Swastika\Project_Details\Indigo\Indigo_Workbench\apache-mave
+ n-2.2.1\repo-Portal-String\net\java\dev\jna\platform\3.4.0\platform-3
+ .4.0.jar
+Resource-Path: D:\Backup\Juno-Jenkins-Auth-Plugin\build-pipeline-plugi
+ n-build-pipeline-plugin-1.4.1\src\main\webapp
+

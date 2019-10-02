@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<catalog>
+	<chain name="get-deployment-detail">
+		<command   id="get-cloud-resources"
+				   className="com.cognizant.formit.chain.getenvironment.DiscoverCloudResources"/>		
+		<command   id="get-cloud-resource-attribute"
+				   className="com.cognizant.formit.chain.getenvironment.FindCloudResourcesAttributes"/>						
+	</chain>
+</catalog>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<catalog>
+	<chain name="launch-deployment">
+		<command   id="initialize-execution-context"
+				   className="com.cognizant.formit.chain.common.InitializeExecutionContext"/>		
+		<command   id="discover-number-of-cloud-resources-required"
+				   className="com.cognizant.formit.chain.launch.DiscoverNumberOfCloudResourcesRequired"/>		
+		<command   id="spawn-cloud-resources"
+				   className="com.cognizant.formit.chain.launch.SpawnCloudResources"/>		
+		<command   id="create-resource-definition-in-CMDB"
+				   className="com.cognizant.formit.chain.launch.CreateResourceDefinitionInCMDB"/>		
+		<command   id="tag-tasks-to-resource"
+				   className="com.cognizant.formit.chain.launch.TagTasksToResource"/>		
+		<command   id="bind-properties-to-be-used-at-runtime"
+				   className="com.cognizant.formit.chain.launch.BindPropertiesToBeUsedAtRuntime"/>	
+		<command   id="launch-deployment"
+				   className="com.cognizant.formit.chain.launch.LaunchDeployment"/>		
+	</chain>
+</catalog>

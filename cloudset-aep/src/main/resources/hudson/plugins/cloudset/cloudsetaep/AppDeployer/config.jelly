@@ -1,0 +1,88 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+ 
+   	   <j:set var="appEnvProfiles" value="${descriptor.installations}"/>
+	   <j:if test="${empty(appEnvProfiles)}">
+	    <!-- no appEnvProfiles installation is configured, so warn the user now -->
+	    <f:entry title="${%AppEnvProfileInstallation}">
+	      <div class="error">${%AppEnvProfileInstallation.error(rootURL)}</div>
+	    </f:entry>
+	  </j:if>
+	  
+	   <j:if test="${appEnvProfiles.size() gt 0}">	    
+	    <f:dropdownList title="${%AppEnvProfileInstallation}" name="appEnvProfile.aepConfiguration" >
+		 <j:forEach var="inst" items="${appEnvProfiles}" varStatus="loop">
+			 <f:dropdownListBlock value="${inst.name}" title="${inst.name}" selected="${inst.name==appEnvProfile.aepConfiguration.installationName}">
+				<f:nested>
+				<input type="hidden" name="appEnvProfile.aepConfiguration.installationURL" value="${inst.appEnvURL}" />	
+					
+							<!-- this part is for Cloud Provider -->
+							<f:dropdownList title="${%AppEnvProfileCloudProvider}" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration">
+						      <j:forEach var="cloudProvider" items="${descriptor.getCloudProviderlist(inst.name)}" varStatus="loop">
+						       <f:dropdownListBlock value="${cloudProvider}" title="${cloudProvider}" selected="${cloudProvider==appEnvProfile.aepConfiguration.installationName.cloudProvider}">
+	          					<f:nested>
+	          					<input type="hidden" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.cloudProvider" value="${cloudProvider}" />
+	          					
+	          							<!-- this part is for Cloud Region -->
+	          					        <f:dropdownList title="${%AppEnvProfileRegion}" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion">
+						           		<j:forEach var="regionName" items="${descriptor.getRegionList(cloudProvider)}" varStatus="loop">
+						           		   <f:dropdownListBlock value="${regionName}" title="${regionName}" selected="${regionName==appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.regionName}">
+						           		   			           		   
+								           <f:nested>
+								           <input type="hidden" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.regionName" value="${regionName}" />
+								           <!-- this part is for Cloud Account -->
+	          								    <f:dropdownList name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount" title="${%AppEnvProfileAccountDetails}">
+								           		<j:forEach var="accountId" items="${descriptor.getAccountDetailsList(regionName)}" varStatus="loop">
+								           		   <f:dropdownListBlock value="${accountId}" title="${accountId}" selected="${accountId==appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.cloudAccountName}">
+	          										<f:nested>
+	          							            <input type="hidden" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.cloudAccountName" value="${accountId}" />
+						
+														<!-- this part of for App Env Master-->
+											 					<f:dropdownList name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters" title="${%AppEnvProfileMasterDetails}">
+												           		<j:forEach var="appProfileMasterName" items="${descriptor.getAppProfileList(accountId)}" varStatus="loop">
+												           		<f:dropdownListBlock value="${appProfileMasterName}" title="${appProfileMasterName}" selected="${appProfileMasterName==instance.appProfileMasterName}">
+												       			<f:nested>
+			          							            	 <input type="hidden" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.cloudEnvMasterName" value="${appProfileMasterName}" />
+																	
+																		<!-- This part is for App Env Param -->
+																		<f:entry title="${%AppEnvProfileMasterParams}" field="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.paramString">
+															          	<f:textbox value="${descriptor.getAppProfileParamList(appProfileMasterName)}"/>															          	
+															          	<input type="hidden" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.projectUserID" value="${descriptor.getProjectUserID()}" />	
+																		<input type="hidden" name="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.projectID" value="${descriptor.getProjectID()}" />															          	
+															          	</f:entry>	
+															          	<f:entry title="${%AppEnvProfileMasterArtifact}" field="appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.warName">
+															          	<f:textbox name="${appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.warName}" value="${appEnvProfile.aepConfiguration.aepCloudProviderConfiguration.aepCloudRegion.aepCloudAccount.aepCloudEnvMasters.warName}"/>
+															          	</f:entry>
+															          	<!-- till this part is for App Env Param -->																
+																	
+			          											</f:nested>
+						          								</f:dropdownListBlock>
+											        			</j:forEach>
+											      				</f:dropdownList>
+											      		<!-- till this for App Env Master-->
+						
+	          										</f:nested>
+				          							</f:dropdownListBlock>
+									        		</j:forEach>
+									      		</f:dropdownList>
+	          									<!-- Till this for Cloud Account-->
+	          								
+	          							    </f:nested>
+	          							</f:dropdownListBlock>
+						        		</j:forEach>
+						      		</f:dropdownList>
+						      		<!-- Till this for Cloud Region-->
+	          					
+	          					</f:nested>
+	          					</f:dropdownListBlock>
+						        </j:forEach>
+						      </f:dropdownList>
+						      <!-- Till this for Cloud Provider-->
+				
+				</f:nested>
+			 </f:dropdownListBlock>
+		 </j:forEach>
+	    </f:dropdownList>   
+	    <!-- Till this for Cloud Profiles--> 
+	  </j:if>
+
+</j:jelly>

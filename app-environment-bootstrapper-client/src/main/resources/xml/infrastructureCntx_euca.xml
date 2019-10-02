@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<infra:context
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns:infra='http://formation.deployer.jpass.cognizant.com'
+	xsi:schemaLocation='http://formation.deployer.jpass.cognizant.com EnvironmentProfile.xsd'>
+	<infra:cloud>
+		<infra:name>${name}</infra:name>
+		<infra:url>${cloudEndpoint}</infra:url>
+		<infra:accessId>${accessId}</infra:accessId>
+		<infra:secretKey>${secretKey}</infra:secretKey>
+		<infra:virtualMachineServiceURL>https://10.227.125.43:8243/services/VirtualMachineSoapServiceService</infra:virtualMachineServiceURL>
+		<infra:keypath>D:/sb/JPaaS2.0 - keys - (ppk-priv)/JPaaS-Integration/Cognizant-JPaaS2-dev-1.0.jks</infra:keypath>
+		<infra:keystorePwd>Cognizant-JPaaS</infra:keystorePwd>
+		<infra:serviceId>4</infra:serviceId>
+		<infra:keyPairId>JPaaS-Testing</infra:keyPairId>
+		<infra:templates>
+			<infra:template>
+				<infra:mi>${mi1}</infra:mi>
+				<infra:description>WEBSERVER</infra:description>                
+				<infra:zone>cluster-jpaas</infra:zone>
+				<infra:securityGroups>NA</infra:securityGroups>
+				<infra:remoteFS>/tmp/formit-rundeck</infra:remoteFS>
+				<infra:sshPort>22</infra:sshPort>
+				<infra:type>${type}</infra:type>
+				<infra:tag>WEBSERVER</infra:tag>
+				<infra:userData>NA</infra:userData>
+				<infra:remoteUser>ubuntu</infra:remoteUser>
+				<infra:rootCommandPrefix>sudo</infra:rootCommandPrefix>
+				<infra:subnetId>NA</infra:subnetId>
+				<infra:cpuCount>vsphere.general.purpose.cpuCount</infra:cpuCount>  
+				<infra:diskSizeInGb>vsphere.general.purpose.diskSizeInGb</infra:diskSizeInGb>
+				<infra:name>vsphere.general.purpose.name</infra:name>
+				<infra:productId>vsphere.general.purpose.productId</infra:productId>
+				<infra:ramInMb>vsphere.general.purpose.ramInMb</infra:ramInMb>
+			</infra:template>            
+		</infra:templates>
+	</infra:cloud>
+	<infra:project>
+		<infra:ssh-keypath>/home/ubuntu/rundeck_server/key-pair/JPaaS-Testing-ver-1.0.0.priv</infra:ssh-keypath>
+		<infra:name>proj-deployment-orchestrator</infra:name>
+		<infra:resource>http://10.227.125.44:8080/spring-rest-example/rest/resource/resources.xml</infra:resource>
+	</infra:project>
+</infra:context>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   targetNamespace="http://formation.deployer.jpass.cognizant.com"
+		   xmlns:tn="http://formation.deployer.jpass.cognizant.com"
+		   elementFormDefault="qualified"
+		   attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>
+			Define the cloud and template definitions
+			Mention RunDeck project attributes which will be used by runtime  
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="context">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cloud" type="tn:ICloud"/>
+				<xs:element name="project" type="tn:IProject"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Project definition -->
+	<xs:complexType name="IProject">
+		<xs:sequence>
+			<xs:element name="ssh-keypath" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="resource" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Template definition -->
+	<xs:complexType name="ITemplate">
+		<xs:sequence>
+			<xs:element name="mi" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="zone" type="xs:string"/>
+			<xs:element name="securityGroups" type="xs:string"/>
+			<xs:element name="remoteFS" type="xs:string"/>
+			<xs:element name="sshPort" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="tag" type="xs:string"/>            
+			<xs:element name="userData" type="xs:string"/>            
+			<xs:element name="remoteUser" type="xs:string"/>
+			<xs:element name="rootCommandPrefix" type="xs:string"/>
+			<xs:element name="subnetId" type="xs:string"/>
+			<xs:element name="cpuCount" type="xs:string"/>
+			<xs:element name="diskSizeInGb" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="productId" type="xs:string"/>
+			<xs:element name="ramInMb" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Cloud definition -->
+	<xs:complexType name="ICloud">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="providerName" type="xs:string"/>
+			<xs:element name="url" type="xs:string"/>
+			<xs:element name="accessId" type="xs:string"/>
+			<xs:element name="secretKey" type="xs:string"/>                        
+			<xs:element name="virtualMachineServiceURL" type="xs:string"/>
+			<xs:element name="keypath" type="xs:string"/>
+			<xs:element name="keystorePwd" type="xs:string"/>
+			<xs:element name="serviceId" type="xs:string"/>
+			<xs:element name="keyPairId" type="xs:string"/>						
+			<xs:element name="templates">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="template" type="tn:ITemplate"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

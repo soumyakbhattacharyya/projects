@@ -1,0 +1,23 @@
+##Reverting the changes in service_catalog
+delete from service_catalog where service_id=6;
+commit;
+
+##Reverting the changes in role
+delete from role where role_id=11;
+commit;
+
+##Reverting the changes in service_catalog_role_map
+delete from service_catalog_role_map where service_id=6;
+commit;
+
+##Reverting the changes in service_item_catalog
+delete from service_item_catalog where service_id=6;
+commit;
+
+##Reverting the changes in role_service_item_catalog_map
+delete from role_service_item_catalog_map where role_id=11 and service_id=6;
+commit;
+
+##Reverting the changes in enterprise_service_subscription
+delete from enterprise_service_subscription where service_id=6 and ent_serv_subs_id=4;
+commit;

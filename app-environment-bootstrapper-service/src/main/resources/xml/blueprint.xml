@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="proj-deployment-orchestrator" default="deploy-FORMATION" basedir=".">
+    
+	<taskdef name="CONTAINER" classname="com.cognizant.formit.model.steps.ContainerDeploymentStep"/>    
+	<taskdef name="driver" classname="com.cognizant.formit.model.steps.BlueprintDeploymentStep"/>
+	<taskdef name="SUBSTEP" classname="com.cognizant.formit.model.steps.SubStep"/>       
+    
+	<target name="deploy-FORMATION" depends="war-installer">
+		<driver id="DRIVER"                
+				tag="SERVER" 
+				description="Driver step that invokes actual steps to complete a deployment process"/>
+	</target>
+    
+	<!-- Deploys MySQL server -->
+	<target name="mysql">
+		<CONTAINER id="f63bbcd7-f005-47ad-959b-b5dae08f41aa" 
+				   tag="DB_SERVER#MYSQL5" 
+				   type="CONTAINER" 
+				   serialNumber="1"
+				   description="Sets up MySQL 5 DB Server"/>
+	</target>
+	<!-- Deploys required schema file on the installed MySQL server -->
+	<target name="schema-installer" depends="mysql">
+		<SUBSTEP id="b55ccd0d-cd7d-4c3d-85b3-af62c37ff8c4" 
+				 tag="DB_SERVER#MYSQL5" 
+				 type="SUBSTEP" 
+				 description="Installs required schema on MySQL 5 DB"/>
+	</target>
+    
+	<!-- id is UUID, tag defines the label where this step executes
+ type defines the catagory, a container type of step requires 
+ a new VM to get executed, description is free text, properties file loc
+ is to have the deployment profile specific KV pairs -->
+	<!-- Deploys Tomcat web server -->
+	<target name="tomcat" depends="schema-installer">
+		<CONTAINER id="ecdd040a-4828-11e2-b079-f23c91aec05e" 
+				   tag="WEB_SERVER#TOMCAT" 
+				   type="CONTAINER"
+				   serialNumber="2"
+				   description="Sets up Tomcat Web Server"/>
+	</target>
+	<!-- Deploys sample WAR file on tomcat -->
+	<target name="war-installer"  depends="tomcat">
+		<SUBSTEP id="3d356fb7-cc42-4c3d-8002-fce88c032f5a" 
+				 tag="WEB_SERVER#TOMCAT" 
+				 type="SUBSTEP" 
+				 description="Deploys WAR file on Tomcat"/>
+	</target>                
+</project>

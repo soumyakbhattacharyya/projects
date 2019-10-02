@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 15, 2013 1:14:07 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="com.cognizant.jpaas2.api.domain.AppEnvTaskOverview" table="app_env_task_overview" catalog="jpaas2_services_db_dev" lazy="false">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="appEnvInstance" class="com.cognizant.jpaas2.api.domain.AppEnvInstance" fetch="select" lazy="false">
+			<column name="app_env_instance_id" not-null="true" />
+		</many-to-one>
+		<property name="shortDesc" type="string">
+			<column name="short_desc" not-null="true" />
+		</property>
+		<property name="longDesc" type="string">
+			<column name="long_desc" />
+		</property>
+		<property name="category" type="java.lang.Long">
+			<column name="category" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,8 @@
+<div>
+    This checkbox allows jenkins to start the machine instead of launching when the corresponding
+    job is in queue,also the machine will be stopped instead of terminating.Presently
+    the jenkins will wait for 50 mins before stopping the machine from when it was started,because amazon will
+    charge for minimum 1 hr whenever a machine is started,also multiple starting of slave within
+     an hr will be charged multiple times by amazon.So the slave will be kept in started state even after build
+    completes in-case any job is again added to the queue with the same slave label.  
+</div>

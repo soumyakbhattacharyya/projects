@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<version>${jenkins.version}</version>
+	</parent>
+
+	<groupId>com.cognizant</groupId>
+	<artifactId>restart-aborted-jobs</artifactId>
+	<version>${baas.plugin.version}</version>
+	<packaging>hpi</packaging>
+
+	<properties>
+		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+		<versionId>${maven.build.timestamp}</versionId>
+	</properties>
+	<repositories>
+		<repository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jgroups</groupId>
+			<artifactId>jgroups</artifactId>
+			<version>3.4.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.0-beta9</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.0-beta9</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.cognizant.jpaas</groupId>
+			<artifactId>rbac-client</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.cognizant.jpaas2</groupId>
+			<artifactId>httpsclientutil</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
+		</dependency>		
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.9</version>
+			<scope>test</scope>
+		</dependency> -->
+		<dependency>
+			<groupId>org.jenkins-ci.plugins</groupId>
+			<artifactId>cloudset-rbac</artifactId>
+			<version>${baas.plugin.version}</version>
+		</dependency>	
+	</dependencies>
+	
+	<profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>jpaas-build-profile-snapshot</id>
+            <properties>
+                <project.build.groupId>com.cognizant</project.build.groupId>
+                <project.build.artifactId>restart-aborted-jobs</project.build.artifactId>
+                <project.build.version>${baas.plugin.version}</project.build.version>
+            </properties>
+            <distributionManagement>
+                <repository>
+                    <id>${deployment.id}</id>
+                    <url>${deployment.url}</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

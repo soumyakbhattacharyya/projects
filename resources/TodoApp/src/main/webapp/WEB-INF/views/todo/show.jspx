@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_cognizant_jpaas2_todo_TODO" object="${todo_}" path="/todo" z="+IZbpABX7/8tm9rwog6fELGf4Nk=">
+        <field:display field="todoShortDesc" id="s_com_cognizant_jpaas2_todo_TODO_todoShortDesc" object="${todo_}" z="IbyUn0aNyzOJHpYqG37RaVVJY3w="/>
+        <field:display field="todoLongDesc" id="s_com_cognizant_jpaas2_todo_TODO_todoLongDesc" object="${todo_}" z="7pHdBw+ZKFxt8UEeoHweNjXhWS4="/>
+    </page:show>
+</div>

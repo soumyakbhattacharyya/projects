@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cognizant.rundeck</groupId>
+	<artifactId>app-environment-bootstrapper-resource-publication-app</artifactId>
+	<packaging>war</packaging>
+	<version>${aep.module.version}</version>
+	<name>App-Environment-Bootstrapper-Resource-Publication-App</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+        <project.mysql-connector-java.version>5.1.17</project.mysql-connector-java.version>
+        <project.c3po.version>0.9.1.1</project.c3po.version>
+        <project.commons-dbutils.version>1.5</project.commons-dbutils.version>
+        <project.log4j>1.2.15</project.log4j>
+    </properties>
+
+	<distributionManagement>
+		<repository>
+			<id>${deployment.id}</id>
+			<url>${deployment.url}</url>
+		</repository>
+	</distributionManagement>
+	
+	<dependencies>
+
+		<!-- Spring dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.1.1.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>3.1.1.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>3.1.1.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.1.1.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- JSON parser -->
+		
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.7</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- XML parser -->
+		
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- For testing purposes -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.1.1.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- For interacting with database -->
+		
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${project.mysql-connector-java.version}</version>						
+        </dependency>        
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${project.c3po.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>${project.commons-dbutils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${project.log4j}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jdmk</groupId>
+                    <artifactId>jmxtools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.jmx</groupId>
+                    <artifactId>jmxri</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>  
+        <dependency><!-- This is a dependency to read properties file -->
+            <groupId>com.pholser</groupId>
+            <artifactId>property-binder</artifactId>
+            <version>3.1</version>
+        </dependency>
+	</dependencies>
+
+	<build>
+		<finalName>AppEnvPubApp</finalName>
+		
+		<plugins>
+		
+			<!-- With this you can start the server by doing mvn jetty:run -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.26</version>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+		
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>

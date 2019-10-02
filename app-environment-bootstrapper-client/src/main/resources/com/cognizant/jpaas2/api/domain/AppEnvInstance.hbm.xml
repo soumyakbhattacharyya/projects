@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 15, 2013 1:14:07 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+	<class name="com.cognizant.jpaas2.api.domain.AppEnvInstance" table="app_env_instance" catalog="jpaas2_services_db_dev" lazy="false">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="appEnvMaster" class="com.cognizant.jpaas2.api.domain.AppEnvMaster" fetch="select" lazy="false">
+			<column name="app_env_id" not-null="true" />
+		</many-to-one>
+		<property name="instanceId" type="string">
+			<column name="instance_id" unique="true" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" not-null="true" />
+		</property>
+		<property name="properties" type="string">
+			<column name="properties" not-null="true" />
+		</property>
+		<property name="startTimestamp" type="timestamp">
+			<column name="start_timestamp" length="19" not-null="true" />
+		</property>
+		<property name="endTimestamp" type="timestamp">
+			<column name="end_timestamp" length="19" />
+		</property>
+		<property name="accountNumber" type="string">
+			<column name="account_number" length="255"/>
+		</property>
+		<property name="projectId" type="string">
+			<column name="project_id" length="255"/>
+		</property>
+		<property name="userId" type="string">
+			<column name="user_id" length="255"/>
+		</property>
+		<property name="reason" type="string">
+			<column name="reason" length="255"/>
+		</property>
+		<property name="description" type="string">
+			<column name="description" length="255"/>
+		</property>
+		<property name="roleId" type="string">
+			<column name="role_id" length="255"/>
+		</property>
+		<property name="serviceId" type="string">
+			<column name="service_id" length="255"/>
+		</property>
+		<property name="vmDetail" type="string">
+			<column name="vm_detail" sql-type="longtext"/>
+		</property>
+
+		<set name="appEnvTaskOverviews" inverse="true" lazy="false">
+			<key>
+				<column name="app_env_instance_id" />
+			</key>
+			<one-to-many class="com.cognizant.jpaas2.api.domain.AppEnvTaskOverview" />
+		</set>
+	</class>
+</hibernate-mapping>

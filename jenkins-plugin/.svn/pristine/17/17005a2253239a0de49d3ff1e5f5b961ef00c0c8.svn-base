@@ -1,0 +1,5 @@
+cluster.node-revert.mode=true
+cluster.node-primary=CloudSetMaster
+cluster.tcpping.initial_hosts=CloudSetMaster[7800],CloudSetSlave1[7800]
+jenkins.url=http://10.242.138.95/
+use.cloudset.auth.plugin=true

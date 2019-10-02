@@ -1,0 +1,42 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">      <table width="100%">
+  
+  <f:entry field="computeProfileId" title="Compute Profile ID">
+   <f:textbox />
+  </f:entry>
+  <f:validateButton title="Check Compute Profile" progress="${%Validating profiles...}" method="validateComputeProfiles" with="cloud360RestUrl,cloud360UserId,cloud360Password,computeProfileId"/>
+  
+  <f:entry title="${%Remote User ID}" field="remoteUserId">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="${%Secret Priv key}" field="secretPrivateKey">
+    <f:textarea />
+  </f:entry>
+  <f:entry title="${%Remote FS Root}" field="remoteFSRoot">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="${%Remote ssh port}" field="remoteSSHPort">
+    <f:textbox />
+  </f:entry>
+  <f:entry title="${%Root command prefix}" field="rootCommandPrefix">
+      <f:textbox/>
+  </f:entry>
+  <f:entry title="${%Executors}" field="numOfExecutors">
+    <f:textbox />
+  </f:entry>
+  
+  <f:entry title="${%Init Script}" field="initScript">
+    <f:textarea />
+  </f:entry>
+  
+  <f:entry title="${%Labels}" field="label">
+    <f:textbox />
+  </f:entry>
+  
+
+  <f:entry title="">
+    <div align="right">
+      <f:repeatableDeleteButton />
+    </div>
+  </f:entry>
+</table>
+</j:jelly>

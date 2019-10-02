@@ -1,0 +1,12 @@
+<aspectj>
+<aspects>
+<aspect name="com.cognizant.jpaas2.todo.TODO_Roo_Configurable"/>
+<aspect name="com.cognizant.jpaas2.todo.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="com.cognizant.jpaas2.todo.TODO_Roo_JavaBean"/>
+<aspect name="com.cognizant.jpaas2.todo.TODO_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.cognizant.jpaas2.todo.TODO_Roo_Jpa_Entity"/>
+<aspect name="com.cognizant.jpaas2.todo.TODOController_Roo_Controller"/>
+<aspect name="com.cognizant.jpaas2.todo.TODO_Roo_ToString"/>
+</aspects>
+</aspectj>
+

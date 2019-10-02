@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Built-By: 272959
+Created-By: Apache Maven
+Build-Jdk: 1.6.0_31
+Extension-Name: cloudset-rbac
+Implementation-Title: cloudset-rbac
+Implementation-Version: 3.0.0-SNAPSHOT
+Group-Id: org.jenkins-ci.plugins
+Short-Name: cloudset-rbac
+Long-Name: BaaS CloudSet Rbac Plugin
+Url: http://jenkins-ci.org/plugin/cloudset-rbac/
+Plugin-Version: 3.0.0-SNAPSHOT (private-04/23/2014 20:34-272959)
+Hudson-Version: 1.532.1
+Jenkins-Version: 1.532.1
+Plugin-Developers: 
+

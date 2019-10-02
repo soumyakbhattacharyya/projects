@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<catalog>
+	<chain name="terminate-deployment">
+		<command   id="find-cloud-resources"
+				   className="com.cognizant.formit.chain.terminate.FindCloudResources"/>		
+		<command   id="terminate-cloud-resources"
+				   className="com.cognizant.formit.chain.terminate.TerminateCloudResources"/>		
+		<command   id="delete-resource-definition-from-db"
+				   className="com.cognizant.formit.chain.terminate.DeleteResourceDefinitionFromCMDB"/>		
+	</chain>
+</catalog>

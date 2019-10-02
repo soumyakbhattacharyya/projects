@@ -1,0 +1,18 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+	${it.cloud360Dsiplay}
+	<f:entry title="Rest URI" field="cloud360RestUrl">
+		<f:textbox />
+	</f:entry>
+	<f:entry title="Username" field="cloud360UserId">
+		<f:textbox />
+	</f:entry>
+	<f:entry title="Password" field="cloud360Password">
+		<f:password />
+	</f:entry>
+	<f:validateButton title="Connect" progress="${%Connecting...}" method="testConnection" with="cloud360RestUrl,cloud360UserId,cloud360Password"/>
+	<f:entry title="Machine Templates" description="List of Machine Templates to be launched as slaves">
+    <f:repeatable field="cloud360templates">
+      <st:include page="config.jelly" class="${descriptor.clazz}" />
+    </f:repeatable>
+  </f:entry>
+</j:jelly>

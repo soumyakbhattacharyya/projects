@@ -1,0 +1,47 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This Jelly script is used to produce the global configuration option.
+
+    Jenkins uses a set of tag libraries to provide uniformity in forms.
+    To determine where this tag is defined, first check the namespace URI,
+    and then look under $JENKINS/views/. For example, <f:section> is defined
+    in $JENKINS/views/lib/form/section.jelly.
+
+    It's also often useful to just check other similar scripts to see what
+    tags they use. Views are always organized according to its owner class,
+    so it should be straightforward to find them.
+  -->
+  <f:section title="CloudSet E-mail Notification">
+  	<f:entry title="${%SMTP server}" field="smtpServer">
+      <f:textbox />
+    </f:entry>
+    <f:entry title="${%From email address}" field="fromEmail">
+      <f:textbox />
+    </f:entry>
+    <f:advanced>
+  		<f:optionalBlock name="useSMTPAuth" title="${%Use SMTP Authentication}" checked="${descriptor.smtpAuthUserName!=null}">
+    		<f:entry title="${%User Name}" field="smtpAuthUserName">
+      			<f:textbox />
+    		</f:entry>
+    		<f:entry title="${%Password}" field="smtpAuthPassword">
+      			<f:password />
+    		</f:entry>
+  		</f:optionalBlock>
+  		<f:entry title="${%Use SSL}" field="useSsl">
+    		<f:checkbox />
+  		</f:entry>
+	    <f:entry title="${%SMTP Port}" field="smtpPort">
+    		<f:textbox />
+	  	</f:entry>
+  		<f:entry title="${%Reply-To Address}" field="replyToAddress" description="${%Whitespace-separated list of recipient addresses.}">
+    		<f:textbox />
+  		</f:entry>
+	</f:advanced>
+	<f:optionalBlock title="${%Test configuration by sending test e-mail}">
+      <f:entry title="${%Test e-mail recipient}">
+          <f:textbox name="sendTestMailTo"/>
+      </f:entry>
+      <f:validateButton method="sendTestMail" title="${%Test configuration}" with="sendTestMailTo,smtpServer,fromEmail,useSMTPAuth,smtpAuthUserName,smtpAuthPassword,useSsl,smtpPort" />
+    </f:optionalBlock>
+  </f:section>
+</j:jelly>

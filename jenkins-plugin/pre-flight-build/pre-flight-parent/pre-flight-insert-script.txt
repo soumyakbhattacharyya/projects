@@ -1,0 +1,47 @@
+##service_catalog :- Add a new Service as 'Pre-Flight-Build' with service id as 6
+
+insert into service_catalog values(6,'Pre_Flight_Build','Pre Flight Build Service',null);
+commit;
+
+##role:- Add a new Role as 'CLI-Developer' 
+
+insert into role values(11,'CLI_Developer',0,'Jenkins CLI Developer');
+commit;
+
+##service_catalog_role_map:- Add mapping between role and service
+
+insert into service_catalog_role_map values(6,11);
+commit;
+
+
+##service_item_catalog:- Add the following items with service_id as service_id of Pre-Flight-Build
+
+insert into service_item_catalog values(37,'hudson.model.Hudson.Read','Read',6);
+insert into service_item_catalog values(38,'hudson.model.Item.Create','Create',6);
+insert into service_item_catalog values(39,'hudson.model.Item.Configure','Configure',6);
+insert into service_item_catalog values(40,'hudson.model.Item.Delete','Delete',6);
+insert into service_item_catalog values(41,'hudson.model.Item.Build','Build',6);
+insert into service_item_catalog values(42,'hudson.model.Item.Read','Read',6);
+insert into service_item_catalog values(43,'hudson.model.Item.Workspace','Workspace',6);
+insert into service_item_catalog values(44,'hudson.model.Item.Update','Update',6);
+insert into service_item_catalog values(45,'hudson.model.Item.ExtendedRead','ExtendedRead',6);
+insert into service_item_catalog values(46,'Item.CONFIGURE','SVNConfigure',6);
+commit;
+
+##role_service_item_catalog_map:- Add mapping between new services and below service catalogs 
+
+insert into role_service_item_catalog_map values(11,37,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,38,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,39,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,40,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,41,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,42,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,43,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,44,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,45,6,CURRENT_TIMESTAMP,0,null);
+insert into role_service_item_catalog_map values(11,46,6,CURRENT_TIMESTAMP,0,null);
+commit;
+
+##enterprise_service_subscription:- Add an entry for new Service for the enterprise id 1
+
+insert into enterprise_service_subscription values(6,1,CURRENT_DATE,null,4,null,0);

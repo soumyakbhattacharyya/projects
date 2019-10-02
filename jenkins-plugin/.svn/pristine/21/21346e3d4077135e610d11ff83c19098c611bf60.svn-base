@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+  <description></description>
+  <groupId>com.cognizant.cloudset.maven.plugin</groupId>
+  <artifactId>pre-flightbuildplugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <goalPrefix>pre-flightbuild</goalPrefix>
+  <isolatedRealm>false</isolatedRealm>
+  <inheritedByDefault>true</inheritedByDefault>
+  <mojos>
+    <mojo>
+      <goal>preflightbuild</goal>
+      <description>Goal which launches a pre-commit build</description>
+      <requiresDirectInvocation>false</requiresDirectInvocation>
+      <requiresProject>true</requiresProject>
+      <requiresReports>false</requiresReports>
+      <aggregator>false</aggregator>
+      <requiresOnline>false</requiresOnline>
+      <inheritedByDefault>true</inheritedByDefault>
+      <phase>compile</phase>
+      <implementation>com.cognizant.cloudset.maven.plugin.OnTheFlyJobPlugIn</implementation>
+      <language>java</language>
+      <instantiationStrategy>per-lookup</instantiationStrategy>
+      <executionStrategy>once-per-session</executionStrategy>
+      <parameters>
+        <parameter>
+          <name>buildCommand</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>lifecycle parameters of maven build</description>
+        </parameter>
+        <parameter>
+          <name>checkoutFrom</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>source file path for checking out the files.</description>
+        </parameter>
+        <parameter>
+          <name>environment</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>environment label to be built on.</description>
+        </parameter>
+        <parameter>
+          <name>jobCommand</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>command to create or build a job</description>
+        </parameter>
+        <parameter>
+          <name>jobName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>name of the job to be build</description>
+        </parameter>
+        <parameter>
+          <name>requesterId</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>requester id of the build</description>
+        </parameter>
+        <parameter>
+          <name>requesterMailId</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>requester mail id of the build process</description>
+        </parameter>
+        <parameter>
+          <name>workspaceName</name>
+          <type>java.lang.String</type>
+          <required>false</required>
+          <editable>true</editable>
+          <description>name of the project or workspace to be build</description>
+        </parameter>
+      </parameters>
+      <configuration>
+        <environment implementation="java.lang.String">${preflightbuild.environment}</environment>
+        <checkoutFrom implementation="java.lang.String">${preflightbuild.checkoutFrom}</checkoutFrom>
+        <requesterId implementation="java.lang.String">${preflightbuild.requesterId}</requesterId>
+        <buildCommand implementation="java.lang.String">${preflightbuild.buildCommand}</buildCommand>
+        <jobCommand implementation="java.lang.String">${preflightbuild.jobCommand}</jobCommand>
+        <requesterMailId implementation="java.lang.String">${preflightbuild.requesterMailId}</requesterMailId>
+        <workspaceName implementation="java.lang.String">${preflightbuild.workspaceName}</workspaceName>
+        <jobName implementation="java.lang.String">${preflightbuild.jobName}</jobName>
+      </configuration>
+    </mojo>
+  </mojos>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <type>jar</type>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.cognizant.cloudset</groupId>
+      <artifactId>pre-flight-core</artifactId>
+      <type>jar</type>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>jenkins</groupId>
+      <artifactId>cli-jar</artifactId>
+      <type>jar</type>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <type>jar</type>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <type>jar</type>
+      <version>2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <type>jar</type>
+      <version>3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit</artifactId>
+      <type>jar</type>
+      <version>3.2.0.201312181205-r</version>
+    </dependency>
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <type>jar</type>
+      <version>0.1.46</version>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.javaewah</groupId>
+      <artifactId>JavaEWAH</artifactId>
+      <type>jar</type>
+      <version>0.5.6</version>
+    </dependency>
+    <dependency>
+      <groupId>com.pholser</groupId>
+      <artifactId>property-binder</artifactId>
+      <type>jar</type>
+      <version>3.1</version>
+    </dependency>
+  </dependencies>
+</plugin>
