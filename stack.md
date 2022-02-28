@@ -1,4 +1,3 @@
 # Preferred Stack
 
-Phase
-     design
+Java 8
