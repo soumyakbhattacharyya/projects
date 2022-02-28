@@ -1,9 +1,4 @@
 # Preferred Stack
 
-Design
-  * 
-Develop
-Build
-Deploy
-Test
-Secure
+Phase
+     design
