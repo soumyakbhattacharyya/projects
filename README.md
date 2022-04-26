@@ -1,2 +1,2 @@
 # projects
-one stop for all the important projects I have worked since
+the repository comprises of all personal projects that I have worked or working at present
