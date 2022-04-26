@@ -21,3 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+rekruter/core/model/.classpath
+rekruter/core/model/.project
+rekruter/core/model/.settings/org.eclipse.core.resources.prefs
+rekruter/core/model/.settings/org.eclipse.jdt.core.prefs
+rekruter/core/model/.settings/org.eclipse.m2e.core.prefs
+rekruter/opening/.mvn/wrapper/maven-wrapper.jar
+rekruter/opening/.mvn/wrapper/maven-wrapper.properties
+rekruter/opening/mvnw
+rekruter/opening/mvnw.cmd
