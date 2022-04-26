@@ -1,8 +1,6 @@
-package com.recruitment.factory.model.model;
+package link.rekruter.model;
 
 import java.util.Date;
-
-import com.recruitment.factory.model.vacancy.Opening;
 
 import lombok.Data;
 

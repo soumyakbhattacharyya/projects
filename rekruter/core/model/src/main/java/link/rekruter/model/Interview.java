@@ -1,4 +1,4 @@
-package com.recruitment.factory.model.model;
+package link.rekruter.model;
 
 import java.util.Date;
 import java.util.List;

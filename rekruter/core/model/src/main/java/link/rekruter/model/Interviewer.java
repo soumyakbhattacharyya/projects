@@ -1,4 +1,4 @@
-package com.recruitment.factory.model.model;
+package link.rekruter.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

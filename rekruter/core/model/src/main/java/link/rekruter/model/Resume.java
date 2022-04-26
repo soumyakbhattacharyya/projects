@@ -1,10 +1,8 @@
-package com.recruitment.factory.model.model;
+package link.rekruter.model;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.recruitment.factory.model.vacancy.Opening;
 
 import lombok.Data;
 

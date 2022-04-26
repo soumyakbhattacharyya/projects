@@ -1,8 +1,6 @@
-package com.recruitment.factory.model.vacancy;
+package link.rekruter.model;
 
 import java.util.Date;
-
-import com.recruitment.factory.model.model.Location;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
