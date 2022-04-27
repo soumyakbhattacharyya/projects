@@ -9,7 +9,7 @@ import lombok.Data;
 public class Review {
 
 	private String id;
-	private Candidate caodidate;
+	private Candidate candidate;
 	private List<Interviewer> reviewers;
 	private Date createdOn;
 	private List<SubmittedReview> submittedReviews;

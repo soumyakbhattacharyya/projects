@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * represents a potential hire
+ */
 public class Candidate extends Recipient {
 
   private String firstName;
