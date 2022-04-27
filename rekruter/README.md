@@ -51,8 +51,9 @@ Rekruter.Link is an API first Application Tracking System (ATS) that does follow
 
   - Epic
     - As a recruiter I want to schedule interview about the candidate so that I can assert if or if not the candidate must be issued with an offer
-  - Scenario 
-    - 
+  - Scenario
+    - Given that there is a candidate when I want to schedule interview for him/her then I am able to schedule interview
+    - Given that there is an interview when the interview is over then I am able to capture the evaluation
 
 
 

@@ -30,3 +30,5 @@ rekruter/opening/.mvn/wrapper/maven-wrapper.jar
 rekruter/opening/.mvn/wrapper/maven-wrapper.properties
 rekruter/opening/mvnw
 rekruter/opening/mvnw.cmd
+
+target/

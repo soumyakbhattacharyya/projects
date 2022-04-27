@@ -1,27 +1,27 @@
 package link.rekruter.model;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import lombok.Data;
 
 @Data
 public class Resume {
-	
+
+	/**
+	 * unique identifier of the resume
+	 */
+	private String id;
+	/**
+	 * filename of the resume
+	 */
 	private String fileName;
+
+	/**
+	 * content of the file in Base64 encoded format
+	 */
 	private String content;
+
+	/**
+	 * hyperlinked location from where the resume can be downloaded
+	 */
 	private String downloadLocation;
-	
-	private Map<String, String> profile = Collections.synchronizedMap(new HashMap<String, String>());
-	
-	private String source;// from which site this candidate was discovered
-	private String sourceType; // API or website 
-	
-	private String assignedTo;
-	private Opening opening;
-	private Stage stage;
-	
-	
 
 }

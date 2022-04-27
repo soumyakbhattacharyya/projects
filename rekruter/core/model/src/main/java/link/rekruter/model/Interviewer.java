@@ -7,9 +7,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * one who interviews a candidate
+ * 
+ * @author Soumyak
+ *
+ */
 public class Interviewer extends Recipient {
 
-	private String id;
+	/**
+	 * user id of the interviewer
+	 */
 	private String userId;
 
 }

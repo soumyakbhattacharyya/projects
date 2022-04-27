@@ -35,7 +35,9 @@ public interface CandidateService {
 	Candidate findOne();
 
 	/**
-	 * notifies a candidate
+	 * notifies a candidate 
+	 * 
+	 * @param candidateMessage
 	 */
 	void notifyCandidate(CandidateMessage candidateMessage);
 
