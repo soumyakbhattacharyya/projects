@@ -32,3 +32,18 @@ rekruter/opening/mvnw
 rekruter/opening/mvnw.cmd
 
 target/
+*.jar
+*.properties
+rekruter/core/logic/mvnw
+rekruter/core/logic/mvnw.cmd
+rekruter/core/logic/.mvn/wrapper/maven-wrapper.jar
+*.jar
+rekruter/core/business-logic/.mvn/wrapper/maven-wrapper.jar
+rekruter/core/business-logic/mvnw
+rekruter/core/business-logic/.mvn/wrapper/maven-wrapper.jar
+rekruter/core/business-logic/mvnw.cmd
+rekruter/core/domain-model/.classpath
+rekruter/core/domain-model/.project
+rekruter/core/domain-model/.settings/org.eclipse.core.resources.prefs
+rekruter/core/domain-model/.settings/org.eclipse.jdt.core.prefs
+rekruter/core/domain-model/.settings/org.eclipse.m2e.core.prefs
