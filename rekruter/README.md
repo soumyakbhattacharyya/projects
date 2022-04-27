@@ -3,14 +3,20 @@
 Rekruter.Link is an API first Application Tracking System (ATS) that does following job really well,
 
 1. Opening Management
+
 2. Candidate Management
+
 3. Interview Scheduling
-4. Feedback Collection
-5. Generation of Response
+
+   
+
+------
+
+
 
 - Opening Management
 
-  - Story
+  - Epic
     - As a recruiter I want to manage the opening so that I can track all recruitments in relevance to it
 
   - Scenario
@@ -27,6 +33,26 @@ Rekruter.Link is an API first Application Tracking System (ATS) that does follow
     - Given that there is an existing workflow with one or more stages when I want to associate approver for the stage then I am able to mention the approvers for the stage.
 
 - Candidate Management
+
+  - Epic
+    - As a recruiter I want to manage the candidates so that I can arrange interviews and get them recruited to close the opening
+  - Scenario
+    - Given that there is an opening when I register a candidate for the same then I am able to register the new candidate.
+    - Given that there is an existing candidate when I want to upload his/her resume then I am able to do it.
+    - Given that there are candidates when I want to see all of them then I am able to see them.
+    - Given that there are candidates when I want to filter a specific one then I am able to filter him/her
+    - Given that there is a specific candidate that I need to message when I send the message then the message is being sent to the candidate
+    - Given that there are messages exchanged with candidate when I want to see all the messages then I am able to see all the messages
+    - Given that information about a candidate is available in the system when I want to capture internal notes about the candidate then I am able to capture the review comments
+    - Given that there are internal notes about the candidate when I want to see all of those then I am able to see all of those
+    - Given evaluation have completed about a candidate when I want to see the evaluation then I am able to see the evaluation
+
+- Interview Scheduling 
+
+  - Epic
+    - As a recruiter I want to schedule interview about the candidate so that I can assert if or if not the candidate must be issued with an offer
+  - Scenario 
+    - 
 
 
 
