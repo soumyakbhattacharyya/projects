@@ -1,37 +1,41 @@
 package link.reckruter.monolithic.candidate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.net.URI;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
+@RequestMapping(value = "/candidates", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CandidateController {
 
-	private static Map<String, Candidate> candidateRepo = new HashMap<>();
+	@Autowired
+	private CandidateService candidateService;
 
-	@GetMapping(path = "/candidates")
-	public List<Candidate> getAll() {
-
-		List<Candidate> candidates = new ArrayList<>();
-		Candidate candidate = new Candidate(UUID.randomUUID().toString(), "John", "Smith", "9876543219",
-				"web developer");
-		candidates.add(candidate);
-		candidateRepo.put(candidate.getId(), candidate);
-		return candidates;
-
+	@GetMapping
+	public List<CandidateResource> getAll() {
+		return candidateService.findAll();
 	}
 
-	@GetMapping(path = "/candidates/{id}")
-	public Candidate getById(@PathVariable String id) {
-		return candidateRepo.get(id);
+	@GetMapping(path = "/{id}")
+	public CandidateResource getById(@PathVariable String id) {
+		return candidateService.get(id);
+	}
 
+	@PostMapping
+	public ResponseEntity<Object> createCandidate(@RequestBody CandidateResource candidate) {
+		CandidateResource savedEntity = candidateService.create(candidate);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/").buildAndExpand(savedEntity.getId()).toUri();
+		return ResponseEntity.created(uri).build();
 	}
 
 }

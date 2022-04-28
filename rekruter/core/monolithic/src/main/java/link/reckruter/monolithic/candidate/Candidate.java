@@ -1,38 +1,47 @@
 package link.reckruter.monolithic.candidate;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Date;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Id;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@EntityListeners(AuditingEntityListener.class)
+@Getter
+@Setter
 public class Candidate {
-	
-	/**
-	 * unique id of the candidate
-	 */
+
+	@Id
+	@Column(nullable = false, updatable = false)
 	private String id;
 
-	/**
-	 * first name of the candidate
-	 */
+	@Column(nullable = false)
 	private String firstName;
 
-	/**
-	 * last name of the candidate
-	 */
+	@Column
 	private String lastName;
 
-	/**
-	 * phone number of the candidate
-	 */
+	@Column
 	private String phone;
 
-	/**
-	 * brief description about the candidate
-	 */
+	@Column(length = 500)
 	private String description;
 
+	@CreatedDate
+	@Column(nullable = false, updatable = false)
+	private Date dateCreated;
+
+	@LastModifiedDate
+	@Column(nullable = false)
+	private Date lastUpdated;
 
 }
