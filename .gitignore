@@ -47,3 +47,7 @@ rekruter/core/domain-model/.project
 rekruter/core/domain-model/.settings/org.eclipse.core.resources.prefs
 rekruter/core/domain-model/.settings/org.eclipse.jdt.core.prefs
 rekruter/core/domain-model/.settings/org.eclipse.m2e.core.prefs
+.DS_Store
+rekruter/core/monolithic/mvnw.cmd
+rekruter/core/monolithic/mvnw
+rekruter/core/monolithic/.mvn/wrapper/maven-wrapper.jar
