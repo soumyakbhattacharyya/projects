@@ -1,4 +1,4 @@
-package link.reckruter.monolithic;
+package link.reckruter.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package link.reckruter.monolithic.candidate;
+package link.reckruter.service.candidate;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
