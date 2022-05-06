@@ -51,3 +51,6 @@ rekruter/core/domain-model/.settings/org.eclipse.m2e.core.prefs
 rekruter/core/monolithic/mvnw.cmd
 rekruter/core/monolithic/mvnw
 rekruter/core/monolithic/.mvn/wrapper/maven-wrapper.jar
+*.prefs
+utility/utility/.project
+utility/utility/.classpath
