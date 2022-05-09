@@ -55,9 +55,4 @@ public class EncryptionUtil {
 		return new SecretKeySpec(keyValue, ALGO);
 	}
 
-	public static void main(String[] args) throws Exception {
-		System.out.println(encrypt("hello world"));
-		System.out.println(decrypt("wHtRC1gIpVluPbscvEZaHw=="));
-	}
-
 }
