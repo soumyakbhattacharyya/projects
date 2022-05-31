@@ -54,3 +54,8 @@ rekruter/core/monolithic/.mvn/wrapper/maven-wrapper.jar
 *.prefs
 utility/utility/.project
 utility/utility/.classpath
+*.jar
+*.jar
+ref-impl/rest-ref-impl/.mvn/wrapper/maven-wrapper.jar
+ref-impl/rest-ref-impl/mvnw
+ref-impl/rest-ref-impl/mvnw.cmd
