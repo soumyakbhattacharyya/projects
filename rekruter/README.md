@@ -3,22 +3,17 @@
 Rekruter.Link is an API first Application Tracking System (ATS) that does following job really well,
 
 1. Opening Management
-
 2. Candidate Management
-
 3. Interview Scheduling
-
-   
+4. Interview Conducting
+5. Candidate Selection
 
 ------
-
-
 
 - Opening Management
 
   - Epic
     - As a recruiter I want to manage the opening so that I can track all recruitments in relevance to it
-
   - Scenario
     - Given that there is a new opening when I create an opening the new opening gets created.
     - Given that there are existing opening when I attempt to view the openings then I am able to view all openings.
@@ -33,7 +28,6 @@ Rekruter.Link is an API first Application Tracking System (ATS) that does follow
     - Given that there is an existing workflow with one or more stages when I want to associate approver for the stage then I am able to mention the approvers for the stage.
 
 - Candidate Management
-
   - Epic
     - As a recruiter I want to manage the candidates so that I can arrange interviews and get them recruited to close the opening
   - Scenario
@@ -48,7 +42,6 @@ Rekruter.Link is an API first Application Tracking System (ATS) that does follow
     - Given evaluation have completed about a candidate when I want to see the evaluation then I am able to see the evaluation
 
 - Interview Scheduling 
-
   - Epic
     - As a recruiter I want to schedule interview about the candidate so that I can assert if or if not the candidate must be issued with an offer
   - Scenario
